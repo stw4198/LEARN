@@ -1,0 +1,14 @@
+#!/bin/bash
+# Configure script
+# Run once when you unpack source
+
+### Create environment files
+learnroot=`pwd`
+
+cat > LEARN.sh <<EOF
+#!/bin/sh
+LEARNENV=$learnroot
+PATH=\$LEARNENV:\$PATH
+export LEARNENV PATH
+function learn { \$LEARNENV/learn \$*; }
+EOF
